@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); 
+//Mongoose is an object Data Modeling library for MonGoDB and Node.js.
 
 const UserSchema = new mongoose.Schema({
     name: {
