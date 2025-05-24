@@ -73,9 +73,15 @@ const Auth = () => {
                 </button>
               </motion.div>
               <button 
-                className="w-70 mt-4 px-5 py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-500 absolute left-10 bottom-33" 
+                className="w-70 mt-4 px-5 py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-500 absolute left-10 bottom-40" 
                 onClick={handleLogin}>
                 Login
+              </button>
+              <p className="text-gray-500 absolute left-26 top-90">Or, Sign in with Google</p>
+              <button 
+                className="w-70 mt-4 px-5 py-3 bg-white text-black flex items-center justify-center gap-2 border rounded-lg hover:bg-gray-200 absolute left-10 bottom-10" 
+                onClick={handleGoogleSignIn}>
+                <FcGoogle size={24} /> Continue with Google
               </button>
             </div>
           ) : (
