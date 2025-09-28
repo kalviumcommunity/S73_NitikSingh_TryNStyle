@@ -1,18 +1,20 @@
 import { useState } from "react"; //React Hook to manage state variables.
 import { motion } from "framer-motion";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import {FcGoogle} from "react-icons/fc"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc"
 import { auth } from "../../firebaseConfig";  // ✅ Correct Import
+import { useNavigate } from "react-router-dom";
 const provider = new GoogleAuthProvider()
 
 const Auth = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleGoogleSignIn = async () => {
     try {
       await signInWithPopup(auth, provider);  //Opens a Google sign-in popup
-      alert("Signed in with Google!");
+      navigate('/');
     } catch (error) {
       alert(error.message);
     }
@@ -20,7 +22,7 @@ const Auth = () => {
   const handleRegister = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password); //Creates a new user with the provided email and password.
-      alert("User Registered!");
+      navigate('/');
     } catch (error) {
       alert(error.message);
     }
@@ -29,7 +31,7 @@ const Auth = () => {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("User Logged In!");
+      navigate('/');
     } catch (error) {
       alert(error.message);
     }

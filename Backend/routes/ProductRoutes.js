@@ -1,9 +1,10 @@
 const express = require("express")
 const router = express.Router()
-const ProductCrontroller = require("../controllers/ProductControllers")
+const ProductControllers = require("../controllers/ProductControllers")
 
-router.post("/create-products", ProductCrontroller.CreateProduct)
-router.get("/get-products", ProductCrontroller.GetProducts)
+router.post("/create-products", ProductControllers.CreateProduct)
+router.get("/get-products", ProductControllers.GetProducts)
+router.get("/:id", ProductControllers.GetProductById)
 
-module.exports  = router
+module.exports = router
 
